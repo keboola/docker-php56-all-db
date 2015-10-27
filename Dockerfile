@@ -15,8 +15,8 @@ ADD oracle/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm /tmp/oracle-in
 ADD oracle/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm /tmp/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 ADD oracle/oracle.sh /tmp/oracle.sh
 
-RUN yum -y --nogpgcheck install /tmp/oracle-instantclient*
-RUN /tmp/oracle.sh
+#RUN yum -y --nogpgcheck install /tmp/oracle-instantclient*
+#RUN /tmp/oracle.sh
 
 
 #RUN echo 'instantclient,/usr/local/instantclient' | pecl install oci8
