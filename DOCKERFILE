@@ -18,6 +18,11 @@ ADD oracle/oracle.sh /tmp/oracle.sh
 RUN yum -y --nogpgcheck install /tmp/oracle-instantclient*
 RUN /tmp/oracle.sh
 
+
+#RUN echo 'instantclient,/usr/local/instantclient' | pecl install oci8
+#RUN echo "extension=oci8.so" > /etc/php5/apache2/conf.d/30-oci8.ini
+
+
 #RUN yum -y install php-pear
 #RUN pear install oci8
 
