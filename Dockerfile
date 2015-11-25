@@ -8,6 +8,7 @@ RUN yum -y --enablerepo=epel,remi,remi-php56 install php-devel
 RUN yum -y --enablerepo=epel,remi,remi-php56 install gcc
 RUN yum -y --enablerepo=epel,remi,remi-php56 install make
 RUN yum -y --enablerepo=epel,remi,remi-php56 install php-pear
+RUN yum -y --enablerepo=epel,remi,remi-php56 install php-mysql
 RUN yum -y --enablerepo=epel,remi,remi-php56 install php-mssql
 
 # Oracle
