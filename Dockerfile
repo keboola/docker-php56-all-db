@@ -12,7 +12,6 @@ RUN yum -y --enablerepo=epel,remi,remi-php56 install php-mysql
 RUN yum -y --enablerepo=epel,remi,remi-php56 install php-mssql
 
 # Oracle
-
 ADD oracle/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm /tmp/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
 ADD oracle/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm /tmp/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 ADD oracle/oracle.sh /tmp/oracle.sh
@@ -24,6 +23,9 @@ RUN export ORACLE_HOME=/usr/lib/oracle/12.1/client64/lib/
 
 RUN echo 'instantclient,/usr/lib/oracle/12.1/client64/lib/' | pecl install -f oci8-1.4.10
 RUN echo "extension=oci8.so" > /etc/php.d/30-oci8.ini
+
+# MSSQL
+ADD freetds.conf /etc/
 
 
 
