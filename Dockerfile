@@ -27,7 +27,7 @@ ADD mssql/freetds.conf /etc/
 
 # Cloudera
 ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
-RUN yum -y --nogpgcheck install /tmp/ClouderaImpalaODBC*
+RUN yum -y --nogpgcheck --nodeps install /tmp/ClouderaImpalaODBC*
 
 
 
