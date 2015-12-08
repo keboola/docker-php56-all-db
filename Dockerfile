@@ -36,9 +36,9 @@ ADD cloudera/cloudera.impalaodbc.ini /etc/
 RUN ln -s /usr/lib64/libodbccr.so.2 /usr/lib64/libodbccr.so
 
 # @todo: set up some ENV variables
-export ODBCSYSINI=/etc
-export ODBCINI=/etc/odbc.ini
-export SIMBAINI=/opt/cloudera/impalaodbc/lib/64/cloudera.impalaodbc.ini
+RUN export ODBCSYSINI=/etc
+RUN export ODBCINI=/etc/odbc.ini
+RUN export SIMBAINI=/opt/cloudera/impalaodbc/lib/64/cloudera.impalaodbc.ini
 
 # resources
 #https://sskaje.me/2014/07/php-odbc-connect-cloudera-impala-hive/
