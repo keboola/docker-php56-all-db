@@ -27,7 +27,22 @@ ADD mssql/freetds.conf /etc/
 
 # Cloudera
 ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
-#RUN yum -y --nogpgcheck --skip-broken install /tmp/ClouderaImpalaODBC*
+RUN ln  -s  /usr/lib64/libsasl2.so.3  /usr/lib64/libsasl2.so.2
+RUN rpm -ivh ClouderaImpalaODBC* --nodeps
+
+RUN cp -Rf /opt/cloudera/impalaodbc/Setup/* /etc/
+ADD cloudera/odbc.ini /etc/
+ADD cloudera/cloudera.impalaodbc.ini /etc/
+RUN ln -s /usr/lib64/libodbccr.so.2 /usr/lib64/libodbccr.so
+
+# @todo: set up some ENV variables
+export ODBCSYSINI=/etc
+export ODBCINI=/etc/odbc.ini
+export SIMBAINI=/opt/cloudera/impalaodbc/lib/64/cloudera.impalaodbc.ini
+
+# resources
+#https://sskaje.me/2014/07/php-odbc-connect-cloudera-impala-hive/
+#http://www.shekhargovindarajan.com/open-source/connect-and-query-cloudera-impala-using-php-odbc-on-centos-7/
 
 
 
