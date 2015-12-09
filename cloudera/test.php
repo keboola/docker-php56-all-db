@@ -8,7 +8,13 @@
 
 try {
 
-    $pdo = new \PDO("odbc:DSN=MyImpala;","keboola",'PRaDe4$c');
+    $host = '';
+    $port = '';
+    $database = '';
+    $username = '';
+    $password = '';
+
+    $pdo = new \PDO("odbc:DSN=MyImpala;HOST=$host;PORT=$port;Database=$database;UID=$username;PWD=$password", $username, $password);
 
     var_dump($pdo);
 
