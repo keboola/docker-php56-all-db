@@ -4,6 +4,7 @@ MAINTAINER Miro Cillik <miro@keboola.com>
 
 # Install required tools
 RUN yum install -y wget && yum install -y tar
+RUN yum -y install vim
 RUN yum -y --enablerepo=epel,remi,remi-php56 install php-devel
 RUN yum -y --enablerepo=epel,remi,remi-php56 install gcc
 RUN yum -y --enablerepo=epel,remi,remi-php56 install make
@@ -28,7 +29,8 @@ ADD mssql/freetds.conf /etc/
 # Cloudera
 RUN yum -y install cyrus-sasl-gssapi
 RUN yum -y install cyrus-sasl-plain
-ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
+#ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
+ADD cloudera/ClouderaImpalaODBC-2.5.13.1013-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.13.1013-1.el6.x86_64.rpm
 RUN ln  -s  /usr/lib64/libsasl2.so.3  /usr/lib64/libsasl2.so.2
 RUN rpm -ivh ClouderaImpalaODBC* --nodeps
 
