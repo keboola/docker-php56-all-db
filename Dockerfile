@@ -27,10 +27,10 @@ RUN echo "extension=oci8.so" > /etc/php.d/30-oci8.ini
 ADD mssql/freetds.conf /etc/
 
 # Cloudera
+RUN yum -y install unixODBC
 RUN yum -y install cyrus-sasl-gssapi
 RUN yum -y install cyrus-sasl-plain
-#ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
-ADD cloudera/ClouderaImpalaODBC-2.5.13.1013-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.13.1013-1.el6.x86_64.rpm
+ADD cloudera/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm /tmp/ClouderaImpalaODBC-2.5.30.1011-1.el6.x86_64.rpm
 RUN ln  -s  /usr/lib64/libsasl2.so.3  /usr/lib64/libsasl2.so.2
 RUN rpm -ivh ClouderaImpalaODBC* --nodeps
 
