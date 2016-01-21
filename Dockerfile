@@ -32,9 +32,9 @@ RUN ln  -s  /usr/lib64/libsasl2.so.3  /usr/lib64/libsasl2.so.2
 RUN rpm -ivh ClouderaImpalaODBC* --nodeps
 
 RUN cp -Rf /opt/cloudera/impalaodbc/Setup/* /etc/
-ADD cloudera/odbc.ini /etc/
-ADD cloudera/cloudera.impalaodbc.ini /etc/
-ADD cloudera/cloudera.impalaodbc.ini /opt/cloudera/impalaodbc/lib/64/
+ADD cloudera/odbc.ini /etc/odbc.ini
+ADD cloudera/cloudera.impalaodbc.ini /etc/cloudera.impalaodbc.ini
+ADD cloudera/cloudera.impalaodbc.ini /opt/cloudera/impalaodbc/lib/64/cloudera.impalaodbc.ini
 RUN ln -s /usr/lib64/libodbccr.so.2 /usr/lib64/libodbccr.so
 
 ENV ODBCSYSINI /etc
@@ -42,7 +42,7 @@ ENV ODBCINI /etc/odbc.ini
 ENV SIMBAINI /opt/cloudera/impalaodbc/lib/64/cloudera.impalaodbc.ini
 
 # MSSQL
-ADD mssql/freetds.conf /etc/
+ADD mssql/freetds.conf /etc/freetds.conf
 
 # resources
 #https://sskaje.me/2014/07/php-odbc-connect-cloudera-impala-hive/
